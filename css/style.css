@@ -1,7 +1,7 @@
 /* ------------------- Main containers ------------------- */
 
 body {
-	background: url(../images/Background2.jpg);
+	background: url(images/Background2.jpg);
        
 }
 
@@ -159,7 +159,7 @@ a{
   border: 15px solid #E90505;
   padding: 50px;
   margin: auto; 
-  background-image: url("../Images/background7.png"); 
+  background-image: url("images/background7.png"); 
   border-radius: 25px;
 } 
 
