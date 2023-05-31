@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<!--
+
+To change this license header, choose License Headers in Project Properties.
+
+To change this template file, choose Tools | Templates
+
+and open the template in the editor.
+
+-->
+
+<html>    
+
+    <head>        
+
+        <title>Feedback List</title>        
+
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+
+        <style type="text/css">
+
+        table, th, td {    
+
+                border: 1px solid #E90505;    
+
+                border-collapse: collapse;    
+
+                padding: 3px;}
+
+        </style>
+
+    </head>    
+
+    <body>        
+
+        <h1>Feedback List</h1>        
+
+        <img src="images/giphy1.gif" alt = "loading" width="200" height="200" id="loadingIcon">
+
+        <div class="center">
+
+        <div id="contents"></div>                 
+
+        <script type="text/javascript">            
+
+            fetch('/getFeedback', { method: 'get'})                
+
+                    .then((response) => {                    
+
+                        if (response.ok) {                       
+
+                        return response.json();                                    
+
+            }                
+
+        })                
+
+                .then((rows) => {                    
+
+                var element = document.getElementById("loadingIcon");       
+
+        element.parentNode.removeChild(element);                             
+
+        var tableContent =
+
+                "<table><tr><th>Name</th><th>Surname</th><th>Email</th><th>Message</th></tr>";                                          
+
+        for (let row of rows) {                        
+
+        tableContent +=
+
+                "<tr><td>"+row.Name+"</td><td>"+row.Surname+"</td><td>"+row.Email+"</td><td>" +row.Message+"</td></tr>";                                              
+
+    }                    
+
+    tableContent += "</table>";
+
+    document.getElementById("contents").innerHTML = tableContent;                
+
+})                
+
+        .catch(console.log);                
+
+    </script> </div>       
+
+    <p><a href="/index.html"><< GO BACK TO HOME</a></p>
+
+    </body>    
+
+</html>
